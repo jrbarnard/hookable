@@ -96,7 +96,7 @@ trait Hookable
     /**
      * Run hooks for a specific hook name, passing in hook arguments (any number of)
      * NB: All arguments are passed by reference so we can chose to alter the arguments within our callback,
-     * hooks technically can return, but this should'nt be expected / relied on.
+     * hooks technically can return, but this shouldn't be expected / relied on.
      * @param $hookName
      * @param array ...$hookArgs
      * @return mixed
