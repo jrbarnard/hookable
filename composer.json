@@ -1,11 +1,14 @@
 {
     "name": "jrbarnard/hookable",
     "description": "A trait to make any class hookable",
+    "keywords": ["event", "events", "hook", "hookable"],
     "license": "MIT",
+    "homepage": "https://github.com/jrbarnard/hookable",
     "authors": [
         {
             "name": "James Barnard",
-            "email": "james.r.barnard@gmail.com"
+            "email": "james.r.barnard@gmail.com",
+            "homepage": "https://www.jrbarnard.co.uk"
         }
     ],
     "require": {
