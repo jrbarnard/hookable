@@ -36,8 +36,6 @@ $return = $toBeHooked->methodToBeHooked();
 // $return === 'world';
 ```
 
----
-
 ## Contents ##
 
 1. [Requirements](#requirements)
@@ -46,14 +44,10 @@ $return = $toBeHooked->methodToBeHooked();
 4. [Contributing](#contributing)
 5. [License](#license)
 
----
-
 ## <a name=requirements>Requirements</a> ##
 
 Hookables minimum PHP requirement is 5.6, this is because of it's use of [variadic functions](http://php.net/manual/en/functions.arguments.php#functions.variable-arg-list).
 Beyond that, there shouldn't be any other requirements, if you find any, please log as a ticket / do a pull request.
-
----
 
 ## <a name=install>Installation</a> ##
 
@@ -64,19 +58,16 @@ composer require jrbarnard/hookable
 
 However you can also download this repo, unzip it and include it in your project.
 
----
 
 ## <a name=usage>Usage</a> ##
 
 ***TODO***
 
----
 
 ## <a name=contributing>Contributing</a> ##
 
 [Please look at the contributing file](CONTRIBUTING.md)
 
----
 
 ## <a name=license>License</a> ##
 
