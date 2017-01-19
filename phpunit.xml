@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<phpunit bootstrap="./vendor/autoload.php">
+<phpunit bootstrap="./vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
 
     <testsuites>
-        <testsuite name="Hookable">
-            <directory>./tests</directory>
+        <testsuite name="Hookable Test Suite">
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
 
