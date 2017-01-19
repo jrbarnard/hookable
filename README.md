@@ -55,6 +55,8 @@ Hookables minimum PHP requirement is 5.6, this is because of it's use of
 [variadic functions](http://php.net/manual/en/functions.arguments.php#functions.variable-arg-list).
 Beyond that, there shouldn't be any other requirements, if you find any, please log as a ticket / do a pull request.
 
+Currently HHVM / Hack is not supported.
+
 ## <a name=install>Installation</a> ##
 
 Composer is the recommended installation method:
