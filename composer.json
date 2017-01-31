@@ -21,5 +21,9 @@
         "psr-4": {
             "JRBarnard\\Hookable\\": "src/"
         }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "coverage": "phpunit --coverage-html ./tests/report"
     }
 }
