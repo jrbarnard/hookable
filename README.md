@@ -1,6 +1,7 @@
 # Hookable #
 
 [![Build Status](https://travis-ci.org/jrbarnard/hookable.svg?branch=master)](https://travis-ci.org/jrbarnard/hookable)
+[![StyleCI](https://styleci.io/repos/79446774/shield?branch=master)](https://styleci.io/repos/79446774)
 
 Hookable is a trait that can be used by any PHP class, it's purpose it provide a simple API for creating hookable
 'points' within your methods and allowing you to 'hook' into those points when using the class externally or from an 
