@@ -29,7 +29,7 @@ trait Hookable
      * @param callable $hookCallBack
      * @param int $priority
      */
-    public function registerHook($hookName, Callable $hookCallBack, $priority = 0)
+    public function registerHook($hookName, callable $hookCallBack, $priority = 0)
     {
         $this->addHook($hookName, $hookCallBack, $priority);
     }
@@ -60,7 +60,7 @@ trait Hookable
     public function hasHook($hookName)
     {
         // We have something under the hook name
-        if (!array_key_exists($hookName, $this->hooks)){
+        if (!array_key_exists($hookName, $this->hooks)) {
             return false;
         }
 
@@ -111,8 +111,8 @@ trait Hookable
 
         // Loop over the priorities, then the hooks within.
         $result = null;
-        foreach($hooks as $priority => $hook) {
-            foreach($hook as $individualCallable) {
+        foreach ($hooks as $priority => $hook) {
+            foreach ($hook as $individualCallable) {
                 $result = call_user_func_array($individualCallable, $hookArgs);
             }
         }
