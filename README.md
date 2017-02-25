@@ -3,15 +3,15 @@
 [![Build Status](https://travis-ci.org/jrbarnard/hookable.svg?branch=master)](https://travis-ci.org/jrbarnard/hookable)
 [![StyleCI](https://styleci.io/repos/79446774/shield?branch=master)](https://styleci.io/repos/79446774)
 
-Hookable is a trait that can be used by any PHP class, it's purpose it provide a simple API for creating hookable
+Hookable is a trait that can be used by any PHP class, it's purpose is to provide a simple API for creating hookable
 'points' within your methods and allowing you to 'hook' into those points when using the class externally or from an 
 extending child.
 
-The purpose for this is to be able to very quickly add event like functionality during code execution with a very
+The purpose for this is to be able to quickly add event like functionality during code execution with a very
 flexible API.
 
 E.g:
-```
+```php
 namespace App;
 
 use JRBarnard\Hookable\Hookable;
@@ -26,20 +26,28 @@ class ToBeHooked
 
         $someOtherVariable = 'Hello';
 
+        // We run a hook by key and pass through some data
         $this->runHook('hook_key', $data, $someOtherVariable);
         
+        // Because we pass by reference, this variable may have been changed
         return $someOtherVariable;
     }
 }
 
 $toBeHooked = new ToBeHooked();
 
+// Before we have registered the hook
+$return = $toBeHooked->methodToBeHooked();
+// $return === 'Hello';
+
+// Registering a hook on the key is as simple as specifying the key and the relevant callback.
 $toBeHooked->registerHook('hook_key', function($data, &$someOtherVariable){
     if ($someOtherVariable === 'Hello') {
         $someOtherVariable = 'world';        
     }
 });
 
+// After registering the hook
 $return = $toBeHooked->methodToBeHooked();
 // $return === 'world';
 ```
@@ -74,7 +82,7 @@ However you can also download this repo, unzip it and include it in your project
 
 ### Registering and running hooks ###
 
-One of the main use cases for this is when you have a very generic abstract / parent class that is extended on a lot, and
+One of the main use cases for this Trait is when you have a very generic abstract / parent class that is extended a lot, and
 sometimes you want to override / run actions based on the generic methods, without overriding the whole method.
 
 An example of this is below:
@@ -89,7 +97,8 @@ abstract class SomeClass
     public function store(array $data) 
     {
         $model = new Model();
-        $result = $model->fill($data);
+        $model->fill($data);
+        $result = $model->save($result);
         
         $this->runHook('after_store', $data, $model);
         
@@ -106,6 +115,7 @@ class ChildClass extends SomeClass
         $this->registerHook('after_store', function(array $data, Model $model){
             if ($model->isSpecial()) {
                 // Do some sort of specific action for this child.
+                // Perhaps send an email, log something etc.
             }
         });
         
